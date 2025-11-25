@@ -3,7 +3,7 @@ import { Download, Mail, ArrowRight, Github, Linkedin, Dribbble, Code, Palette, 
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { AuroraBackground } from './AuroraBackground';
-import professionalImage from 'figma:asset/2b7a1b9734d4e3f99c19757b8d27c76de7db40ce.png';
+import professionalImage from '../assets/joy.png';
 import { useState, useEffect } from 'react';
 
 export function Hero() {
