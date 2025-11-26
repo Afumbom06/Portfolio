@@ -22,7 +22,7 @@ export function Experience() {
   const experience = [
     {
       title: 'Frontend Developer',
-      company: 'CS Telecoms',
+      company: 'CSKY Telecoms',
       period: 'October 2024 - Present',
       type: 'Full-time',
       description:

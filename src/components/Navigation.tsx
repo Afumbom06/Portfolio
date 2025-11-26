@@ -137,7 +137,6 @@ export function Navigation({ scrolled }: NavigationProps) {
               onClick={() => scrollToSection('contact')}
               className="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 transition-all duration-300 border border-blue-500"
             >
-              <Sparkles className="h-4 w-4" />
               <span className="font-medium">Hire Me</span>
             </Button>
 
@@ -182,7 +181,6 @@ export function Navigation({ scrolled }: NavigationProps) {
               onClick={() => scrollToSection('contact')}
               className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg shadow-blue-600/30"
             >
-              <Sparkles className="h-4 w-4 mr-2" />
               Hire Me
             </Button>
           </div>

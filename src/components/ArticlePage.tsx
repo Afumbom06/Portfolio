@@ -150,9 +150,9 @@ export function ArticlePage({ onBack }: ArticlePageProps) {
               </div>
             </div>
 
-            <h2 className="text-gray-900 dark:text-white mt-12 mb-4">Current Role: Frontend Developer at CS Telecoms</h2>
+            <h2 className="text-gray-900 dark:text-white mt-12 mb-4">Current Role: Frontend Developer at CSKY Telecoms</h2>
             <p>
-              In October 2024, I transitioned to a Frontend Developer role at CS Telecoms. This position allows me to combine my design sensibilities with my development skills. I work with React, TypeScript, and Tailwind CSS to build responsive, performant web applications for telecommunications solutions.
+              In October 2024, I transitioned to a Frontend Developer role at CSKY Telecoms. This position allows me to combine my design sensibilities with my development skills. I work with React, TypeScript, and Tailwind CSS to build responsive, performant web applications for telecommunications solutions.
             </p>
 
             <p>
@@ -259,7 +259,7 @@ export function ArticlePage({ onBack }: ArticlePageProps) {
               <h4 className="text-gray-900 dark:text-white mb-2">About the Author</h4>
               <h3 className="text-gray-900 dark:text-white mb-3">Bulawa Joy Afumbom</h3>
               <p className="text-gray-600 dark:text-gray-400 mb-4">
-                Frontend Developer & UI/UX Designer with a passion for creating beautiful, functional web experiences. BSc in Software Engineering from the University of Buea. Currently building telecommunications solutions at CS Telecoms.
+                Frontend Developer & UI/UX Designer with a passion for creating beautiful, functional web experiences. BSc in Software Engineering from the University of Buea. Currently building telecommunications solutions at CSKY Telecoms.
               </p>
               <Button onClick={onBack} className="bg-blue-600 hover:bg-blue-700 text-white">
                 View More Articles
