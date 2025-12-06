@@ -9,7 +9,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const categories = [
     { id: 'all', label: 'All Projects' },
@@ -182,12 +182,80 @@ export function Projects() {
       liveUrl: '#',
       githubUrl: '#',
     },
+    {
+      id: 10,
+      title: 'Time Management System',
+      category: 'dashboard',
+      role: 'Frontend Developer',
+      description: 'A focused time management application with timers, pomodoro support, and tracking of productive sessions.',
+      features: [
+        'Pomodoro timers',
+        'Session logging',
+        'Customizable intervals',
+        'Task-focused timers',
+        'Session statistics',
+      ],
+      tools: ['React', 'TypeScript', 'Tailwind CSS'],
+      image: 'https://images.unsplash.com/photo-1526378721981-3b5a5b1f0f4a?w=800',
+      liveUrl: '#',
+      githubUrl: '#',
+    },
+    {
+      id: 11,
+      title: 'Habit Tracker (Habit Forge)',
+      category: 'web-app',
+      role: 'Frontend Developer',
+      description: 'Habit management system with reminders, streak tracking, and progress insights.',
+      features: [
+        'Create & track habits',
+        'Reminders & notifications',
+        'Streaks and progress charts',
+        'Daily/weekly goals',
+        'History and export',
+      ],
+      tools: ['React', 'TypeScript', 'Tailwind CSS'],
+      image: 'https://images.unsplash.com/photo-1529676468690-9b1f4d9f9f3a?w=800',
+      liveUrl: '#',
+      githubUrl: '#',
+    },
   ];
+
+  // Map demo links explicitly by project id to avoid index misalignment.
+  // Updated per user's mapping; ambiguous / not-yet-available links are set to '#'.
+  const demoLinkMap: Record<number, string> = {
+    // 1: Restaurant Management System
+    1: 'https://food-fusion-gray.vercel.app/',
+    // 2: Task Management System (Planova)
+    2: 'https://planova-eta.vercel.app/',
+    // 3: Expense Tracker (mapped to habit tracker provided)
+    3: 'https://habit-forge-j42n.vercel.app/',
+    // 4: Kids Learning App - no link provided / unclear (left as '#')
+    4: '#',
+    // 5: Laptop & Electronics Store - not available yet
+    5: '#',
+    // 6: Furniture Website
+    6: 'https://furnisure-green.vercel.app/',
+    // 7: Real Estate Website (user-provided URL; please confirm)
+    7: 'https://fashio-naire-m7edrt7jw-bulawa-joy-afumboms-projects.vercel.app/',
+    // 8: CamVoyage Tourism Website
+    8: 'https://cam-voyage-z35d-b2t4uwnur-bulawa-joy-afumboms-projects.vercel.app/',
+    // 9: Event Planner Website
+    9: 'https://eventify-gray-five.vercel.app/',
+    // 10: Time Management System (Taskly)
+    10: 'https://taskly-phi-one.vercel.app/',
+    // 11: Habit Tracker (Habit Forge)
+    11: 'https://habit-forge-j42n.vercel.app/',
+  };
+
+  const projectsWithLinks = projects.map((project) => ({
+    ...project,
+    liveUrl: demoLinkMap[project.id] || '#',
+  }));
 
   const filteredProjects =
     selectedCategory === 'all'
-      ? projects
-      : projects.filter((p) => p.category === selectedCategory);
+      ? projectsWithLinks
+      : projectsWithLinks.filter((p) => p.category === selectedCategory);
 
   return (
     <section id="projects" className="py-24 bg-white dark:bg-gray-900">
@@ -295,7 +363,16 @@ export function Projects() {
                     </div>
 
                     <div className="flex gap-2 mt-auto">
-                      <Button size="sm" className="flex-1 gap-2" variant="outline">
+                      <Button 
+                        size="sm" 
+                        className="flex-1 gap-2" 
+                        variant="outline"
+                        onClick={() => {
+                          if (project.liveUrl && project.liveUrl !== '#') {
+                            window.open(project.liveUrl, '_blank');
+                          }
+                        }}
+                      >
                         <ExternalLink className="h-4 w-4" />
                         Live Demo
                       </Button>
@@ -344,7 +421,7 @@ export function Projects() {
                   <div>
                     <h4 className="text-gray-900 dark:text-white mb-3">Key Features</h4>
                     <ul className="space-y-2">
-                      {selectedProject.features.map((feature, index) => (
+                      {selectedProject.features.map((feature: string, index: number) => (
                         <li
                           key={index}
                           className="flex items-start gap-2 text-gray-600 dark:text-gray-400"
@@ -359,7 +436,7 @@ export function Projects() {
                   <div>
                     <h4 className="text-gray-900 dark:text-white mb-3">Technologies Used</h4>
                     <div className="flex flex-wrap gap-2">
-                      {selectedProject.tools.map((tool, index) => (
+                      {selectedProject.tools.map((tool: string, index: number) => (
                         <Badge
                           key={index}
                           variant="outline"
@@ -372,7 +449,14 @@ export function Projects() {
                   </div>
 
                   <div className="flex gap-4">
-                    <Button className="flex-1 bg-blue-600 hover:bg-blue-700 gap-2">
+                    <Button 
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 gap-2"
+                      onClick={() => {
+                        if (selectedProject.liveUrl && selectedProject.liveUrl !== '#') {
+                          window.open(selectedProject.liveUrl, '_blank');
+                        }
+                      }}
+                    >
                       <ExternalLink className="h-4 w-4" />
                       View Live Demo
                     </Button>
