@@ -23,7 +23,7 @@ export function Projects() {
     {
       id: 1,
       title: 'Restaurant Management System',
-      category: 'web-app',
+      category: 'dashboard',
       role: 'Full Stack Developer',
       description: 'A comprehensive restaurant management platform with order tracking, inventory management, and staff scheduling.',
       features: [
@@ -203,7 +203,7 @@ export function Projects() {
     {
       id: 11,
       title: 'Habit Tracker (Habit Forge)',
-      category: 'web-app',
+      category: 'dashboard',
       role: 'Frontend Developer',
       description: 'Habit management system with reminders, streak tracking, and progress insights.',
       features: [
