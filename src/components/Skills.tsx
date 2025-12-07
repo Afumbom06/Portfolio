@@ -74,26 +74,31 @@ export function Skills() {
   ];
 
   const getColorClasses = (color: string) => {
+    // Professional / muted palette: indigo, slate, teal, stone
     const colors: Record<string, { bg: string; text: string; bar: string }> = {
       blue: {
-        bg: 'bg-blue-100 dark:bg-blue-900/30',
-        text: 'text-blue-600 dark:text-blue-400',
-        bar: 'bg-blue-600',
+        // Indigo-ish for frontend
+        bg: 'bg-indigo-50 dark:bg-indigo-900/20',
+        text: 'text-indigo-700 dark:text-indigo-300',
+        bar: 'bg-indigo-700',
       },
       purple: {
-        bg: 'bg-purple-100 dark:bg-purple-900/30',
-        text: 'text-purple-600 dark:text-purple-400',
-        bar: 'bg-purple-600',
+        // Slate for design
+        bg: 'bg-slate-50 dark:bg-slate-900/20',
+        text: 'text-slate-700 dark:text-slate-300',
+        bar: 'bg-slate-700',
       },
       green: {
-        bg: 'bg-green-100 dark:bg-green-900/30',
-        text: 'text-green-600 dark:text-green-400',
-        bar: 'bg-green-600',
+        // Teal for tools
+        bg: 'bg-teal-50 dark:bg-teal-900/20',
+        text: 'text-teal-700 dark:text-teal-300',
+        bar: 'bg-teal-700',
       },
       orange: {
-        bg: 'bg-orange-100 dark:bg-orange-900/30',
-        text: 'text-orange-600 dark:text-orange-400',
-        bar: 'bg-orange-600',
+        // Stone/neutral for additional skills
+        bg: 'bg-stone-50 dark:bg-stone-900/20',
+        text: 'text-stone-700 dark:text-stone-300',
+        bar: 'bg-stone-700',
       },
     };
     return colors[color];
@@ -113,7 +118,7 @@ export function Skills() {
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             A comprehensive overview of my technical abilities and professional competencies
           </p>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full mt-4" />
+          <div className="w-20 h-1 bg-slate-700 mx-auto rounded-full mt-4" />
         </motion.div>
 
         {/* Technical Skills */}
@@ -185,7 +190,7 @@ export function Skills() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                   whileHover={{ scale: 1.05 }}
-                  className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg text-center border border-blue-100 dark:border-blue-900 hover:shadow-lg transition-shadow cursor-default"
+                  className="p-4 bg-slate-50 dark:bg-slate-950 rounded-lg text-center border border-slate-100 dark:border-slate-900 hover:shadow-lg transition-shadow cursor-default"
                 >
                   <span className="text-gray-700 dark:text-gray-300">
                     {skill}
