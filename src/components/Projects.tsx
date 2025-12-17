@@ -250,6 +250,7 @@ export function Projects() {
   const projectsWithLinks = projects.map((project) => ({
     ...project,
     liveUrl: demoLinkMap[project.id] || '#',
+    githubUrl: 'https://github.com/Afumbom06?tab=repositories',
   }));
 
   const filteredProjects =
@@ -376,7 +377,16 @@ export function Projects() {
                         <ExternalLink className="h-4 w-4" />
                         Live Demo
                       </Button>
-                      <Button size="sm" className="flex-1 gap-2" variant="outline">
+                      <Button 
+                        size="sm" 
+                        className="flex-1 gap-2" 
+                        variant="outline"
+                        onClick={() => {
+                          if (project.githubUrl && project.githubUrl !== '#') {
+                            window.open(project.githubUrl, '_blank');
+                          }
+                        }}
+                      >
                         <Github className="h-4 w-4" />
                         Code
                       </Button>
@@ -460,7 +470,15 @@ export function Projects() {
                       <ExternalLink className="h-4 w-4" />
                       View Live Demo
                     </Button>
-                    <Button variant="outline" className="flex-1 gap-2">
+                    <Button 
+                      variant="outline" 
+                      className="flex-1 gap-2"
+                      onClick={() => {
+                        if (selectedProject.githubUrl && selectedProject.githubUrl !== '#') {
+                          window.open(selectedProject.githubUrl, '_blank');
+                        }
+                      }}
+                    >
                       <Github className="h-4 w-4" />
                       View Code
                     </Button>
