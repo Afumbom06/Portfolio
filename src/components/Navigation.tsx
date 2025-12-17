@@ -24,25 +24,34 @@ export function Navigation({ scrolled }: NavigationProps) {
   ];
 
   useEffect(() => {
+    // Throttle scroll handling using requestAnimationFrame to avoid frequent state updates on mobile
+    let ticking = false;
     const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          const sections = navItems.map(item => document.getElementById(item.id));
+          const scrollPosition = window.scrollY + 100;
 
-      // Calculate scroll progress
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (window.scrollY / windowHeight) * 100;
-      setScrollProgress(scrolled);
+          // Calculate scroll progress
+          const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrolled = windowHeight > 0 ? (window.scrollY / windowHeight) * 100 : 0;
+          setScrollProgress(scrolled);
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i];
+            if (section && section.offsetTop <= scrollPosition) {
+              setActiveSection(navItems[i].id);
+              break;
+            }
+          }
+
+          ticking = false;
+        });
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
